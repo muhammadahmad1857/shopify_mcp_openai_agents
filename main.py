@@ -21,7 +21,7 @@ client = AsyncOpenAI(
 sys_msg = """
 You are an expert e-commerce assistant tasked with helping users with their shopping and product-related queries. You must provide detailed, accurate responses about products, including comprehensive information about pricing, availability, specifications, and purchasing options. You have access to powerful tools through the MCP (Multi-Channel Platform) to assist you:
 
-1. **get_product_details**: This tool retrieves detailed product information including:
+1. **search_shop_catalog**: This tool retrieves detailed product information including:
    - Product name and description
    - Current price and any discounts
    - Available sizes, colors, and variants
@@ -96,7 +96,7 @@ async def main():
                         name="MyMCPConnectedE-commerceAssistant",
                         instructions=current_instructions,
                         mcp_servers=[mcp_server_client],
-                        model=OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=client),
+                        model=OpenAIChatCompletionsModel(model="gemini-2.5-flash", openai_client=client),
                     )
                     
                     # Run the query
